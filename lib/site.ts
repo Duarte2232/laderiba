@@ -26,6 +26,7 @@ export const NAV = [
   { href: "/sobre", label: "Sobre Nós" },
 ] as const
 
+
 export type AreaIcon = "idosos" | "criancas" | "cultura" | "servicos" | "formacao" | "centro"
 
 // Texto retirado da página "Sobre". Os pontos em `aConfirmar` são perguntas em aberto para a direção, não factos.
@@ -44,8 +45,9 @@ export const AREAS = [
     alt: "Crianças e atividades da associação",
     title: "Crianças",
     icon: "criancas" as AreaIcon,
-    image: "area-criancas",
+    image: "evento", // não usado: esta área não tem cartão próprio
     summary: "Cuidados e iniciativas que promovem o desenvolvimento integral das crianças.",
+    featured: false, // sem fotografia adequada por agora: só aparece na página Sobre
     aConfirmar: ["Atividades em curso", "Idades abrangidas", "Horários e inscrições"],
   },
   {
@@ -81,8 +83,11 @@ export const AREAS = [
     title: "Centro de Dia",
     icon: "centro" as AreaIcon,
     image: "area-centro-de-dia",
-    summary: "Um projeto em planeamento para acolher e apoiar idosos em contexto de proximidade e bem-estar.",
-    planned: true,
-    aConfirmar: ["Estado atual do projeto", "Calendário previsto"],
+    summary: "O Centro de Dia já foi inaugurado e vai acolher e apoiar idosos em contexto de proximidade e bem-estar. Neste momento decorre o processo de admissão de utentes.",
+    badge: "Inaugurado · admissões em curso",
+    aConfirmar: ["Como e quando fazer a candidatura", "Condições de admissão", "Contactos para mais informações"],
   },
 ] as const
+
+// Áreas com cartão próprio na página inicial e em Respostas Sociais.
+export const FEATURED_AREAS = AREAS.filter((a) => !("featured" in a && a.featured === false))

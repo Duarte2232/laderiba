@@ -3,6 +3,7 @@
 export interface Momento {
   slug: string
   titulo: string
+  descricao?: string
   fotos: { file: string; alt: string }[]
 }
 
@@ -50,6 +51,25 @@ export const MOMENTOS: Momento[] = [
     fotos: [
       f("caminhada1", "Participantes da caminhada reunidos junto à igreja, com t-shirts brancas"),
       f("caminhada2", "Fitas coloridas atadas a uma vedação de madeira junto ao rio, com uma placa comemorativa"),
+    ],
+  },
+  {
+    slug: "apresentacao-livro-os-de-la-de-riba",
+    titulo: "Apresentação do livro «Os de Lá de Riba»",
+    descricao:
+      "Um trabalho desenvolvido há vários anos por duas filhas da terra, Alda Barreiros e Maria Alves, e agora «palpável», carregado de memórias e de história.",
+    fotos: [
+      f("livro1", "Capa do livro «Os de Lá de Riba», de Alda Barreiros e Maria Alves, junto a um prato de barro da Feira Lá de Riba"),
+      f("livro2", "Mesa da apresentação do livro «Os de Lá de Riba», com cartaz do livro em frente"),
+    ],
+  },
+  {
+    slug: "passeio-da-comunidade",
+    titulo: "Passeio da comunidade",
+    descricao: "Um passeio organizado para a comunidade.",
+    fotos: [
+      f("passeio2", "Grupo de participantes no passeio, reunidos num cais junto a barcos"),
+      f("passeio1", "Participantes sentados no autocarro durante o passeio"),
     ],
   },
 ]

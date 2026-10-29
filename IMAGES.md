@@ -1,8 +1,8 @@
 # Imagens do site
 
 ## Já colocadas
-`logo.png` (logótipo, fundo transparente, gerado a partir do `logo.jpg` original — se tiver uma versão em alta resolução ou vetorial, **SVG**, substitua-a), `hero`, `sobre`, `sobre-topo`, `area-idosos`, `area-centro-de-dia`, `area-cultura`, `area-servicos` e `eventos-vazio`.
-**Em falta:** `area-criancas`, `area-formacao` e `evento` (continuam com espaço reservado).
+`logo.png` (logótipo, fundo transparente, gerado a partir do `logo.jpg` original — se tiver uma versão em alta resolução ou vetorial, **SVG**, substitua-a), `hero`, `sobre`, `sobre-topo`, `area-idosos`, `area-centro-de-dia`, `area-cultura`, `area-servicos`, `area-formacao` e `eventos-vazio`.
+**Em falta:** `evento` (imagem por omissão de eventos sem foto). A área "Crianças" já não tem cartão próprio; se tiver fotografias, diga-me e volto a incluí-la.
 As fotografias dos eventos estão em `public/images/momentos/` e são listadas em `lib/momentos.ts` (galeria "Momentos da nossa comunidade").
 
 Coloque os ficheiros em `public/images/` **com exatamente estes nomes** (`.webp`, `.jpg` ou `.png`).
@@ -15,7 +15,6 @@ O Next.js redimensiona e converte para AVIF/WebP, por isso pode enviar a foto or
 | `sobre` | "Quem somos" (início) e página Sobre | 1200 × 900 px (4:3) | Equipa/voluntários ou sede. |
 | `sobre-topo` | Fundo do cabeçalho da página Sobre (aparece esbatido) | 2000 × 900 px | Opcional. |
 | `area-idosos` | Cartão e secção "Apoio a Idosos" | 1200 × 900 px (4:3) | |
-| `area-criancas` | "Crianças" | 1200 × 900 px (4:3) | |
 | `area-cultura` | "Cultura, Educação e Turismo" | 1200 × 900 px (4:3) | |
 | `area-servicos` | "Serviços Comunitários" | 1200 × 900 px (4:3) | |
 | `area-formacao` | "Promoção e Formação" | 1200 × 900 px (4:3) | |

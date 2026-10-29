@@ -9,7 +9,6 @@ export const IMAGE_SLOTS = {
   sobre: { label: "Foto da associação (Quem somos)", width: 1200, height: 900 },
   "sobre-topo": { label: "Foto de topo da página Sobre", width: 2000, height: 900 },
   "area-idosos": { label: "Apoio a idosos", width: 1200, height: 900 },
-  "area-criancas": { label: "Crianças", width: 1200, height: 900 },
   "area-cultura": { label: "Cultura, educação e turismo", width: 1200, height: 900 },
   "area-servicos": { label: "Serviços comunitários", width: 1200, height: 900 },
   "area-formacao": { label: "Promoção e formação", width: 1200, height: 900 },

@@ -9,14 +9,14 @@ import { LoadError } from "@/components/site/load-error"
 import { PageHero } from "@/components/site/page-hero"
 import { Reveal } from "@/components/site/reveal"
 import { getRespostasSociais } from "@/lib/server/content"
-import { AREAS, SITE } from "@/lib/site"
+import { FEATURED_AREAS, SITE } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 export const revalidate = 60
 
 export const metadata: Metadata = {
   title: "Respostas Sociais",
-  description: `Conheça as áreas de trabalho da ${SITE.name}: apoio a idosos, crianças, cultura e turismo, serviços comunitários, formação e o futuro Centro de Dia.`,
+  description: `Conheça as áreas de trabalho da ${SITE.name}: apoio a idosos, cultura e turismo, serviços comunitários, formação e o Centro de Dia.`,
   alternates: { canonical: "/respostas-sociais" },
 }
 
@@ -28,12 +28,12 @@ export default async function RespostasSociaisPage() {
       <PageHero
         eyebrow="Respostas Sociais"
         title="Como apoiamos a comunidade"
-        intro="Do apoio a idosos e crianças à cultura e à formação: estas são as áreas em que a associação trabalha."
+        intro="Do apoio a idosos à cultura e à formação: estas são as áreas em que a associação trabalha."
       />
 
       <section className="section">
         <div className="wrap space-y-20 md:space-y-28">
-          {AREAS.map((area, i) => (
+          {FEATURED_AREAS.map((area, i) => (
             <article key={area.slug} id={area.slug} className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <Reveal className={cn(i % 2 === 1 && "lg:order-2")}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-sand shadow-lg">
@@ -45,8 +45,8 @@ export default async function RespostasSociaisPage() {
                   <AreaIconView icon={area.icon} className="h-7 w-7" />
                 </span>
                 <h2 className="mt-4 text-3xl font-bold md:text-4xl">{area.title}</h2>
-                {"planned" in area && (
-                  <p className="mt-3 inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">Em planeamento</p>
+                {"badge" in area && (
+                  <p className="mt-3 inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">{area.badge}</p>
                 )}
                 <p className="mt-4 text-xl text-muted-foreground">{area.summary}</p>
 

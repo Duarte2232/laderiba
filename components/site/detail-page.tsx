@@ -21,8 +21,8 @@ export function DetailPage({ backHref, backLabel, title, description, images, me
         <h1 className="text-balance text-4xl font-bold md:text-5xl">{title}</h1>
         {meta && <div className="mt-5 space-y-2 text-lg">{meta}</div>}
         {images[0] && (
-          <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-3xl bg-sand shadow-lg">
-            <Image src={images[0]} alt={title} fill priority sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
+          <div className="relative mt-8 aspect-[4/5] overflow-hidden rounded-3xl bg-sand shadow-lg sm:aspect-[16/10]">
+            <Image src={images[0]} alt={`Imagem de ${title}`} fill priority sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
           </div>
         )}
         {description && <p className="mt-8 whitespace-pre-line text-xl leading-relaxed">{description}</p>}

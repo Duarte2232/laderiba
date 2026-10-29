@@ -104,22 +104,36 @@ export default function SobrePage() {
                 Atividades que reforçam o espírito de entreajuda e apoio mútuo entre os membros da comunidade.
               </p>
             </li>
-            {AREAS.map((area, i) => (
-              <li key={area.slug}>
-                <Reveal delay={(i % 3) * 80} className="h-full">
-                  <Link href={`/respostas-sociais#${area.slug}`} className="card-soft group block h-full p-6 hover:shadow-xl">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-olive-tint text-olive">
-                      <AreaIconView icon={area.icon} className="h-6 w-6" />
-                    </span>
-                    <h3 className="mt-4 text-xl font-bold">{area.title}</h3>
-                    <p className="mt-2 text-base text-muted-foreground">{area.summary}</p>
+            {AREAS.map((area, i) => {
+              const featured = !("featured" in area && area.featured === false)
+              const body = (
+                <>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-olive-tint text-olive">
+                    <AreaIconView icon={area.icon} className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 text-xl font-bold">{area.title}</h3>
+                  <p className="mt-2 text-base text-muted-foreground">{area.summary}</p>
+                  {featured && (
                     <span className="mt-4 inline-flex items-center gap-2 font-bold text-accent">
                       Saber mais <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </span>
-                  </Link>
-                </Reveal>
-              </li>
-            ))}
+                  )}
+                </>
+              )
+              return (
+                <li key={area.slug}>
+                  <Reveal delay={(i % 3) * 80} className="h-full">
+                    {featured ? (
+                      <Link href={`/respostas-sociais#${area.slug}`} className="card-soft group block h-full p-6 hover:shadow-xl">
+                        {body}
+                      </Link>
+                    ) : (
+                      <div className="card-soft h-full p-6">{body}</div>
+                    )}
+                  </Reveal>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </section>

@@ -19,9 +19,11 @@ export function MomentosGaleria() {
           {MOMENTOS.map((m) => (
             <Reveal key={m.slug}>
               <section aria-labelledby={`m-${m.slug}`}>
-                <h3 id={`m-${m.slug}`} className="mb-4 text-2xl font-bold">
+                <h3 id={`m-${m.slug}`} className="text-2xl font-bold">
                   {m.titulo}
                 </h3>
+                {m.descricao && <p className="mt-2 max-w-3xl text-base text-muted-foreground">{m.descricao}</p>}
+                <div className="mb-4" />
                 <ul className={m.fotos.length > 1 ? "grid grid-cols-2 gap-3 lg:grid-cols-3" : "grid max-w-2xl gap-3"}>
                   {m.fotos.map((foto, i) => (
                     <li
@@ -62,7 +64,7 @@ export function MomentosFaixa() {
           </Link>
         </Reveal>
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {MOMENTOS.map((m, i) => (
             <li key={m.slug}>
               <Reveal delay={i * 70} className="h-full">

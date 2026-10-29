@@ -10,6 +10,7 @@ export function LogoMark({ light = false, className }: { light?: boolean; classN
       alt=""
       width={808}
       height={536}
+      sizes="96px"
       priority={!light}
       className={cn("h-14 w-auto shrink-0", light && "brightness-0 invert", className)}
     />
