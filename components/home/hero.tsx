@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-olive-dark text-white">
       {src ? (
         <>
-          <Image src={src} alt="Novo edifício da associação, em Riba de Mouro" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_60%]" />
+          <Image src={src} alt="Novo edifício da associação, em Riba de Mouro" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_50%]" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-olive-dark/85 via-olive-dark/50 to-olive-dark/5" />
         </>
       ) : (
