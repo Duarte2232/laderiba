@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site"
 export function Hero() {
   const src = resolveSlot("hero")
   return (
-    <section className="relative isolate overflow-hidden bg-olive-dark text-white">
+    <section className="relative isolate flex w-full flex-col overflow-hidden bg-olive-dark text-white md:aspect-[2.18/1] md:min-h-[36rem] md:max-h-[88vh]">
       {src ? (
         <>
           <Image src={src} alt="Novo edifício da associação, em Riba de Mouro" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_50%]" />
@@ -24,7 +24,7 @@ export function Hero() {
         </div>
       )}
 
-      <div className="wrap flex min-h-[34rem] flex-col justify-center py-20 md:min-h-[40rem] md:py-28">
+      <div className="wrap flex min-h-[34rem] flex-1 flex-col justify-center py-20 md:min-h-[36rem] md:py-24">
         <p className="eyebrow !text-[#F2B992]">Riba de Mouro · desde {SITE.founded}</p>
         <h1 className="max-w-3xl text-balance text-4xl font-bold !text-white sm:text-5xl lg:text-6xl">
           Cuidar, ensinar e animar a nossa comunidade
