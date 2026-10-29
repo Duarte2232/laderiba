@@ -13,7 +13,7 @@ import { getEventos, adicionarEvento, eliminarEvento } from '@/lib/admin-client'
 import Image from 'next/image';
 import Link from 'next/link';
 import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { pt } from 'date-fns/locale';
 
 // Componente principal que contém a lógica de administração de eventos
 function EventosAdmin() {
@@ -148,7 +148,7 @@ function EventosAdmin() {
       
       // Se for uma data JavaScript
       const data = new Date(dataStr);
-      return format(data, 'dd/MM/yyyy', { locale: ptBR });
+      return format(data, 'dd/MM/yyyy', { locale: pt });
     } catch (error) {
       return dataStr;
     }
@@ -262,7 +262,7 @@ function EventosAdmin() {
 
                 {uploadStatus.success && (
                   <div className="bg-green-50 text-green-500 p-2 rounded">
-                    Evento cadastrado com sucesso!
+                    Evento registado com sucesso!
                   </div>
                 )}
 
@@ -274,7 +274,7 @@ function EventosAdmin() {
                   {uploadStatus.loading ? (
                     <>
                       <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
-                      Enviando...
+                      A enviar...
                     </>
                   ) : (
                     'Adicionar Evento'

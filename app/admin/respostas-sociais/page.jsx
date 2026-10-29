@@ -209,7 +209,7 @@ function RespostasSociaisAdmin() {
                   {uploadStatus.loading ? (
                     <>
                       <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
-                      Enviando...
+                      A enviar...
                     </>
                   ) : (
                     'Adicionar Resposta Social'

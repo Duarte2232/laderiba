@@ -212,7 +212,7 @@ function DocumentosAdmin() {
 
                 <div className="space-y-2">
                   <label htmlFor="file-upload" className="text-sm font-medium">
-                    Arquivo
+                    Ficheiro
                   </label>
                   <Input
                     id="file-upload"
@@ -246,7 +246,7 @@ function DocumentosAdmin() {
                   {uploadStatus.loading ? (
                     <>
                       <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent" />
-                      Enviando...
+                      A enviar...
                     </>
                   ) : (
                     'Enviar Documento'
@@ -277,7 +277,7 @@ function DocumentosAdmin() {
                 </div>
               ) : (
                 <Table>
-                  <TableCaption>Lista de documentos cadastrados</TableCaption>
+                  <TableCaption>Lista de documentos registados</TableCaption>
                   <TableHeader>
                     <TableRow>
                       <TableHead>Título</TableHead>
@@ -322,7 +322,7 @@ function DocumentosAdmin() {
   );
 }
 
-// Componente principal para gerenciar documentos
+// Componente principal para gerir documentos
 export default function DocumentosPage() {
   return <DocumentosAdmin />;
 } 

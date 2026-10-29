@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: ["class"],
+    
     content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,7 +10,14 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+  			serif: ['var(--font-heading)', 'Georgia', 'serif']
+  		},
   		colors: {
+  			olive: { DEFAULT: '#2F4A36', dark: '#213528', tint: '#E6EBDD' },
+  			terracotta: { DEFAULT: '#A94B2A', tint: '#F4DDD0' },
+  			sand: { DEFAULT: '#F0E7D6', dark: '#E2D6C0' },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
