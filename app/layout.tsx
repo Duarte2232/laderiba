@@ -38,7 +38,7 @@ const structuredData = {
   foundingDate: String(SITE.founded),
   email: SITE.email,
   telephone: SITE.phone,
-  logo: `${SITE.url}/icon.svg`,
+  logo: `${SITE.url}/images/logo.png`,
   address: {
     "@type": "PostalAddress",
     streetAddress: SITE.address.street,

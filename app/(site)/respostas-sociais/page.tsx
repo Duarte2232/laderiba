@@ -37,7 +37,7 @@ export default async function RespostasSociaisPage() {
             <article key={area.slug} id={area.slug} className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <Reveal className={cn(i % 2 === 1 && "lg:order-2")}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-sand shadow-lg">
-                  <ImageSlot slot={area.image} alt={area.title} sizes="(min-width: 1024px) 540px, 100vw" />
+                  <ImageSlot slot={area.image} alt={area.alt} sizes="(min-width: 1024px) 540px, 100vw" />
                 </div>
               </Reveal>
               <Reveal delay={100}>

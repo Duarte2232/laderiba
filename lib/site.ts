@@ -32,6 +32,7 @@ export type AreaIcon = "idosos" | "criancas" | "cultura" | "servicos" | "formaca
 export const AREAS = [
   {
     slug: "apoio-a-idosos",
+    alt: "Sala da associação, com a identificação A.S.C. Lá de Riba no vidro e cadeiras azuis",
     title: "Apoio a Idosos",
     icon: "idosos" as AreaIcon,
     image: "area-idosos",
@@ -40,6 +41,7 @@ export const AREAS = [
   },
   {
     slug: "criancas",
+    alt: "Crianças e atividades da associação",
     title: "Crianças",
     icon: "criancas" as AreaIcon,
     image: "area-criancas",
@@ -48,6 +50,7 @@ export const AREAS = [
   },
   {
     slug: "cultura-e-turismo",
+    alt: "Marcador da caminhada junto ao rio, com fitas coloridas, em Riba de Mouro",
     title: "Cultura, Educação e Turismo",
     icon: "cultura" as AreaIcon,
     image: "area-cultura",
@@ -56,6 +59,7 @@ export const AREAS = [
   },
   {
     slug: "servicos-comunitarios",
+    alt: "Voluntários da associação com camisolas verdes, num evento da comunidade",
     title: "Serviços Comunitários",
     icon: "servicos" as AreaIcon,
     image: "area-servicos",
@@ -64,6 +68,7 @@ export const AREAS = [
   },
   {
     slug: "formacao",
+    alt: "Atividades de formação da associação",
     title: "Promoção e Formação",
     icon: "formacao" as AreaIcon,
     image: "area-formacao",
@@ -72,6 +77,7 @@ export const AREAS = [
   },
   {
     slug: "centro-de-dia",
+    alt: "Sala de convívio do Centro de Dia, com cadeirões e janelas amplas",
     title: "Centro de Dia",
     icon: "centro" as AreaIcon,
     image: "area-centro-de-dia",

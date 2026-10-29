@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Contact } from "@/components/home/contact"
 import { EmptyState } from "@/components/site/empty-state"
 import { EventCard } from "@/components/site/event-card"
+import { MomentosGaleria } from "@/components/site/momentos"
 import { LoadError } from "@/components/site/load-error"
 import { PageHero } from "@/components/site/page-hero"
 import { isUpcoming } from "@/lib/format"
@@ -76,6 +77,7 @@ export default async function EventosPage() {
           ) : <LoadError what="os eventos" />}
         </div>
       </section>
+      <MomentosGaleria />
       <Contact />
     </>
   )

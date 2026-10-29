@@ -3,6 +3,7 @@ import { Hero } from "@/components/home/hero"
 import { AboutIntro } from "@/components/home/about-intro"
 import { Areas } from "@/components/home/areas"
 import { Highlights } from "@/components/home/highlights"
+import { MomentosFaixa } from "@/components/site/momentos"
 import { Contact } from "@/components/home/contact"
 import { getDocumentos, getEventos } from "@/lib/server/content"
 import { isUpcoming } from "@/lib/format"
@@ -32,6 +33,7 @@ export default async function Home() {
       <AboutIntro />
       <Areas />
       <Highlights evento={proximo} documentos={recentes} />
+      <MomentosFaixa />
       <Contact />
     </>
   )

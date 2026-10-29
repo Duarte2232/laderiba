@@ -24,7 +24,7 @@ export function AboutIntro() {
         </Reveal>
         <Reveal delay={120}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-sand shadow-lg">
-            <ImageSlot slot="sobre" alt="Pessoas da associação Lá de Riba" sizes="(min-width: 1024px) 560px, 100vw" />
+            <ImageSlot slot="sobre" alt="Grupo de pessoas com a bandeira da associação, no evento Cantar os Reis" sizes="(min-width: 1024px) 560px, 100vw" />
           </div>
         </Reveal>
       </div>

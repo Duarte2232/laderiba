@@ -51,7 +51,7 @@ export default function SobrePage() {
             <p className="eyebrow">A nossa história</p>
             <h2 className="text-balance text-3xl font-bold md:text-4xl">Mais de uma década ao serviço da comunidade</h2>
             <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl bg-sand shadow-lg">
-              <ImageSlot slot="sobre" alt="Pessoas da associação Lá de Riba" sizes="(min-width: 1024px) 520px, 100vw" />
+              <ImageSlot slot="sobre" alt="Grupo de pessoas com a bandeira da associação, no evento Cantar os Reis" sizes="(min-width: 1024px) 520px, 100vw" />
             </div>
           </Reveal>
 

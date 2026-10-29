@@ -26,7 +26,7 @@ export function Areas() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-sand">
                     <ImageSlot
                       slot={area.image}
-                      alt={area.title}
+                      alt={area.alt}
                       sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
                       className="transition-transform duration-500 group-hover:scale-105"
                     />

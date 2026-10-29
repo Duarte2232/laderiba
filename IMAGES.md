@@ -1,5 +1,10 @@
 # Imagens do site
 
+## Já colocadas
+`logo.png` (logótipo, fundo transparente, gerado a partir do `logo.jpg` original — se tiver uma versão em alta resolução ou vetorial, **SVG**, substitua-a), `hero`, `sobre`, `sobre-topo`, `area-idosos`, `area-centro-de-dia`, `area-cultura`, `area-servicos` e `eventos-vazio`.
+**Em falta:** `area-criancas`, `area-formacao` e `evento` (continuam com espaço reservado).
+As fotografias dos eventos estão em `public/images/momentos/` e são listadas em `lib/momentos.ts` (galeria "Momentos da nossa comunidade").
+
 Coloque os ficheiros em `public/images/` **com exatamente estes nomes** (`.webp`, `.jpg` ou `.png`).
 O site usa-os automaticamente; enquanto não existirem, mostra um espaço reservado com a etiqueta "Foto a fornecer".
 O Next.js redimensiona e converte para AVIF/WebP, por isso pode enviar a foto original (idealmente até 3 MB por ficheiro).
