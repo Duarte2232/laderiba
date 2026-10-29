@@ -2,15 +2,20 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react"
-import { getEventoPorId } from "@/lib/firebase"
+import { getEventoPorId } from "@/lib/server/content"
 import Image from "next/image"
 import Link from "next/link"
 
 // Faz com que a página seja renderizada a cada requisição
 export const revalidate = 0
 
-export default async function EventoDetalhePage({ params }) {
-  const evento = await getEventoPorId(params.id);
+export default async function EventoDetalhePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const dados = await getEventoPorId(id);
+  const evento = dados && {
+    ...dados,
+    dataEvento: dados.dataEventoISO ? new Intl.DateTimeFormat("pt-PT").format(new Date(dados.dataEventoISO)) : "",
+  };
   
   if (!evento) {
     return (

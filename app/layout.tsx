@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { cn } from "@/lib/utils"
-import { AuthProvider } from '@/lib/auth'
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -27,11 +26,9 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <AuthProvider>
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
             </div>
-          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

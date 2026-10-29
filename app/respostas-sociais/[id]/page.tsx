@@ -2,15 +2,16 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Heart, Share2, Users } from "lucide-react"
-import { getRespostaSocialPorId } from "@/lib/firebase"
+import { getRespostaSocialPorId } from "@/lib/server/content"
 import Image from "next/image"
 import Link from "next/link"
 
 // Faz com que a página seja renderizada a cada requisição
 export const revalidate = 0
 
-export default async function RespostaSocialDetalhePage({ params }) {
-  const resposta = await getRespostaSocialPorId(params.id);
+export default async function RespostaSocialDetalhePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const resposta = await getRespostaSocialPorId(id);
   
   if (!resposta) {
     return (

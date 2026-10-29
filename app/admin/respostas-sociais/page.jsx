@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { getRespostasSociais, adicionarRespostaSocial, excluirRespostaSocial } from '@/lib/firebase';
+import { getRespostasSociais, adicionarRespostaSocial, eliminarRespostaSocial } from '@/lib/admin-client';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -97,23 +97,23 @@ function RespostasSociaisAdmin() {
       console.error('Erro ao fazer upload:', error);
       setUploadStatus({
         loading: false,
-        error: 'Erro ao cadastrar a resposta social. Tente novamente.',
+        error: 'Erro ao registar a resposta social. Tente novamente.',
         success: false
       });
     }
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja excluir esta resposta social?')) {
+    if (!window.confirm('Tem a certeza de que pretende eliminar esta resposta social?')) {
       return;
     }
 
     try {
-      await excluirRespostaSocial(id);
+      await eliminarRespostaSocial(id);
       setRespostas(respostas.filter(resposta => resposta.id !== id));
     } catch (error) {
-      console.error('Erro ao excluir resposta social:', error);
-      alert('Erro ao excluir resposta social. Tente novamente.');
+      console.error('Erro ao eliminar resposta social:', error);
+      alert('Erro ao eliminar resposta social. Tente novamente.');
     }
   };
 
@@ -131,7 +131,7 @@ function RespostasSociaisAdmin() {
       <Tabs defaultValue="upload" className="mb-8">
         <TabsList className="mb-4">
           <TabsTrigger value="upload">Adicionar Resposta Social</TabsTrigger>
-          <TabsTrigger value="manage">Gerenciar Respostas Sociais</TabsTrigger>
+          <TabsTrigger value="manage">Gerir Respostas Sociais</TabsTrigger>
         </TabsList>
 
         <TabsContent value="upload">
@@ -223,14 +223,14 @@ function RespostasSociaisAdmin() {
         <TabsContent value="manage">
           <Card>
             <CardHeader>
-              <CardTitle>Gerenciar Respostas Sociais</CardTitle>
+              <CardTitle>Gerir Respostas Sociais</CardTitle>
               <CardDescription>
                 Visualize, edite ou remova respostas sociais existentes.
               </CardDescription>
             </CardHeader>
             <CardContent>
               {loading ? (
-                <div className="text-center py-4">Carregando respostas sociais...</div>
+                <div className="text-center py-4">A carregar respostas sociais...</div>
               ) : respostas.length === 0 ? (
                 <div className="text-center py-4">Nenhuma resposta social encontrada.</div>
               ) : (
@@ -275,7 +275,7 @@ function RespostasSociaisAdmin() {
                               size="sm"
                               onClick={() => handleDelete(resposta.id)}
                             >
-                              Excluir
+                              Eliminar
                             </Button>
                           </TableCell>
                         </TableRow>
@@ -303,7 +303,7 @@ export default function RespostasSociaisPage() {
   }, [user, loading, router]);
 
   if (loading) {
-    return <div className="container mx-auto py-8 px-4">Carregando...</div>;
+    return <div className="container mx-auto py-8 px-4">A carregar...</div>;
   }
 
   if (!user) {

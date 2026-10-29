@@ -10,14 +10,14 @@ export default function AdminPage() {
 }
 
 function AdminDashboard() {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
 
   return (
     <div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Painel de Administração</h1>
         <p className="text-muted-foreground">
-          Bem-vindo, {user?.username}! Gerencie os conteúdos da Associação Cultural Lá de Riba.
+          Gira os conteúdos da Associação Social e Cultural Lá de Riba.
         </p>
       </div>
 
@@ -25,14 +25,14 @@ function AdminDashboard() {
         <Card>
           <CardHeader>
             <CardTitle>Eventos</CardTitle>
-            <CardDescription>Gerenciar eventos da associação</CardDescription>
+            <CardDescription>Gerir eventos da associação</CardDescription>
           </CardHeader>
           <CardContent>
             <p>Adicione, edite ou remova eventos que serão exibidos no site.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" className="w-full" asChild>
-              <Link href="/admin/eventos">Gerenciar Eventos</Link>
+              <Link href="/admin/eventos">Gerir Eventos</Link>
             </Button>
           </CardFooter>
         </Card>
@@ -40,14 +40,14 @@ function AdminDashboard() {
         <Card>
           <CardHeader>
             <CardTitle>Documentos</CardTitle>
-            <CardDescription>Gerenciar documentos públicos</CardDescription>
+            <CardDescription>Gerir documentos públicos</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Gerencie os documentos oficiais disponíveis para consulta pública.</p>
+            <p>Gira os documentos oficiais disponíveis para consulta pública.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" className="w-full" asChild>
-              <Link href="/admin/documentos">Gerenciar Documentos</Link>
+              <Link href="/admin/documentos">Gerir Documentos</Link>
             </Button>
           </CardFooter>
         </Card>
@@ -55,14 +55,14 @@ function AdminDashboard() {
         <Card>
           <CardHeader>
             <CardTitle>Respostas Sociais</CardTitle>
-            <CardDescription>Gerenciar respostas sociais</CardDescription>
+            <CardDescription>Gerir respostas sociais</CardDescription>
           </CardHeader>
           <CardContent>
             <p>Atualize as informações sobre as respostas sociais da associação.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" className="w-full" asChild>
-              <Link href="/admin/respostas-sociais">Gerenciar Respostas</Link>
+              <Link href="/admin/respostas-sociais">Gerir Respostas</Link>
             </Button>
           </CardFooter>
         </Card>

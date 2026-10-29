@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { getEventos, adicionarEvento, excluirEvento } from '@/lib/firebase';
+import { getEventos, adicionarEvento, eliminarEvento } from '@/lib/admin-client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -118,23 +118,23 @@ function EventosAdmin() {
       console.error('Erro ao fazer upload:', error);
       setUploadStatus({
         loading: false,
-        error: 'Erro ao cadastrar o evento. Tente novamente.',
+        error: 'Erro ao registar o evento. Tente novamente.',
         success: false
       });
     }
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja excluir este evento?')) {
+    if (!window.confirm('Tem a certeza de que pretende eliminar este evento?')) {
       return;
     }
 
     try {
-      await excluirEvento(id);
+      await eliminarEvento(id);
       setEventos(eventos.filter(evento => evento.id !== id));
     } catch (error) {
-      console.error('Erro ao excluir evento:', error);
-      alert('Erro ao excluir evento. Tente novamente.');
+      console.error('Erro ao eliminar evento:', error);
+      alert('Erro ao eliminar evento. Tente novamente.');
     }
   };
 
@@ -168,7 +168,7 @@ function EventosAdmin() {
       <Tabs defaultValue="upload" className="mb-8">
         <TabsList className="mb-4">
           <TabsTrigger value="upload">Adicionar Evento</TabsTrigger>
-          <TabsTrigger value="manage">Gerenciar Eventos</TabsTrigger>
+          <TabsTrigger value="manage">Gerir Eventos</TabsTrigger>
         </TabsList>
 
         <TabsContent value="upload">
@@ -288,14 +288,14 @@ function EventosAdmin() {
         <TabsContent value="manage">
           <Card>
             <CardHeader>
-              <CardTitle>Gerenciar Eventos</CardTitle>
+              <CardTitle>Gerir Eventos</CardTitle>
               <CardDescription>
                 Visualize, edite ou remova eventos existentes.
               </CardDescription>
             </CardHeader>
             <CardContent>
               {loading ? (
-                <div className="text-center py-4">Carregando eventos...</div>
+                <div className="text-center py-4">A carregar eventos...</div>
               ) : eventos.length === 0 ? (
                 <div className="text-center py-4">Nenhum evento encontrado.</div>
               ) : (
@@ -344,7 +344,7 @@ function EventosAdmin() {
                               size="sm"
                               onClick={() => handleDelete(evento.id)}
                             >
-                              Excluir
+                              Eliminar
                             </Button>
                           </TableCell>
                         </TableRow>
@@ -372,7 +372,7 @@ export default function EventosPage() {
   }, [user, loading, router]);
 
   if (loading) {
-    return <div className="container mx-auto py-8 px-4">Carregando...</div>;
+    return <div className="container mx-auto py-8 px-4">A carregar...</div>;
   }
 
   if (!user) {

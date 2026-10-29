@@ -7,20 +7,25 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import Image from "next/image"
-import { getEventos } from "@/lib/firebase"
+import { getEventos } from "@/lib/server/content"
 
 // Faz com que a página seja renderizada a cada requisição
 export const revalidate = 0
 
 export default async function EventosPage() {
   // Busca os eventos do Firebase
-  const eventos = await getEventos();
+  const resultado = await getEventos();
+  const eventos = (resultado.ok ? resultado.data : []).map((e) => ({
+    ...e,
+    eventDate: e.dataEventoISO ? new Date(e.dataEventoISO) : null,
+    dataEvento: e.dataEventoISO ? new Intl.DateTimeFormat("pt-PT").format(new Date(e.dataEventoISO)) : "",
+  }));
   
   // Divide eventos em passados e futuros com base na data atual
   const dataAtual = new Date();
   
   // Função para converter string de data portuguesa (DD/MM/YYYY) para objeto Date
-  const converterData = (dataStr) => {
+  const converterData = (dataStr: string) => {
     if (!dataStr) return null;
     const partes = dataStr.split('/');
     if (partes.length !== 3) return null;

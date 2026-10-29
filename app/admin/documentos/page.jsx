@@ -15,7 +15,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { uploadDocument, getAllDocuments, deleteDocument } from '@/lib/firebase';
+import { adicionarDocumento as uploadDocument, getDocumentos as getAllDocuments, eliminarDocumento as deleteDocument } from '@/lib/admin-client';
 
 // Componente principal que contém a lógica de administração de documentos
 function DocumentosAdmin() {
@@ -73,7 +73,7 @@ function DocumentosAdmin() {
     if (!formData.file) {
       setUploadStatus({
         loading: false,
-        error: 'Por favor, selecione um arquivo para enviar',
+        error: 'Por favor, selecione um ficheiro para enviar',
         success: false
       });
       return;
@@ -124,7 +124,7 @@ function DocumentosAdmin() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja excluir este documento?')) {
+    if (!window.confirm('Tem a certeza de que pretende eliminar este documento?')) {
       return;
     }
 
@@ -132,8 +132,8 @@ function DocumentosAdmin() {
       await deleteDocument(id);
       setDocuments(documents.filter(doc => doc.id !== id));
     } catch (error) {
-      console.error('Erro ao excluir documento:', error);
-      alert('Erro ao excluir documento. Tente novamente.');
+      console.error('Erro ao eliminar documento:', error);
+      alert('Erro ao eliminar documento. Tente novamente.');
     }
   };
 
@@ -149,7 +149,7 @@ function DocumentosAdmin() {
       <Tabs defaultValue="upload" className="mb-8">
         <TabsList className="mb-4">
           <TabsTrigger value="upload">Upload de Documento</TabsTrigger>
-          <TabsTrigger value="manage">Gerenciar Documentos</TabsTrigger>
+          <TabsTrigger value="manage">Gerir Documentos</TabsTrigger>
         </TabsList>
 
         <TabsContent value="upload">
@@ -260,7 +260,7 @@ function DocumentosAdmin() {
         <TabsContent value="manage">
           <Card>
             <CardHeader>
-              <CardTitle>Gerenciar Documentos</CardTitle>
+              <CardTitle>Gerir Documentos</CardTitle>
               <CardDescription>
                 Visualize, edite ou remova documentos existentes.
               </CardDescription>
@@ -269,7 +269,7 @@ function DocumentosAdmin() {
               {loading ? (
                 <div className="text-center py-4">
                   <div className="mx-auto h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-                  <p className="mt-2">Carregando documentos...</p>
+                  <p className="mt-2">A carregar documentos...</p>
                 </div>
               ) : documents.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
@@ -297,7 +297,7 @@ function DocumentosAdmin() {
                           {doc.category === 'other' && 'Outros'}
                         </TableCell>
                         <TableCell>
-                          {new Date(doc.createdAt).toLocaleDateString('pt-BR')}
+                          {new Date(doc.createdAt).toLocaleDateString('pt-PT')}
                         </TableCell>
                         <TableCell className="text-right">
                           <Button
@@ -306,7 +306,7 @@ function DocumentosAdmin() {
                             className="text-red-500 hover:text-red-700 hover:bg-red-50"
                             onClick={() => handleDelete(doc.id)}
                           >
-                            Excluir
+                            Eliminar
                           </Button>
                         </TableCell>
                       </TableRow>

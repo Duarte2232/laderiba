@@ -10,7 +10,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 export default function AdminLogin() {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -23,14 +22,14 @@ export default function AdminLogin() {
     setError('');
 
     try {
-      const result = await login(username, password);
+      const result = await login(password);
       if (result.success) {
         router.push('/admin');
       } else {
-        setError(result.error || 'Erro ao fazer login');
+        setError(result.error || 'Erro ao iniciar sessão');
       }
     } catch (err) {
-      setError('Ocorreu um erro ao processar o login');
+      setError('Ocorreu um erro ao iniciar sessão');
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -41,9 +40,9 @@ export default function AdminLogin() {
     <div className="flex min-h-screen items-center justify-center">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Login de Administrador</CardTitle>
+          <CardTitle>Acesso de Administrador</CardTitle>
           <CardDescription>
-            Acesse a área de administração da Associação Cultural Lá de Riba
+            Aceda à área de administração da Associação Social e Cultural Lá de Riba
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -54,17 +53,7 @@ export default function AdminLogin() {
               </Alert>
             )}
             <div className="space-y-2">
-              <Label htmlFor="username">Nome de Usuário</Label>
-              <Input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Senha</Label>
+              <Label htmlFor="password">Palavra-passe</Label>
               <Input
                 id="password"
                 type="password"

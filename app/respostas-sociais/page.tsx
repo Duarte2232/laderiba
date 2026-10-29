@@ -6,14 +6,15 @@ import { Input } from "@/components/ui/input"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import Image from "next/image"
-import { getRespostasSociais } from "@/lib/firebase"
+import { getRespostasSociais } from "@/lib/server/content"
 
 // Faz com que a página seja renderizada a cada requisição
 export const revalidate = 0
 
 export default async function RespostasSociaisPage() {
   // Busca as respostas sociais do Firebase
-  const respostas = await getRespostasSociais();
+  const resultado = await getRespostasSociais();
+  const respostas = resultado.ok ? resultado.data : [];
 
   return (
     <div className="flex min-h-screen flex-col">
