@@ -11,8 +11,8 @@ const f = (file: string, alt: string) => ({ file: `/images/momentos/${file}.jpg`
 
 export const MOMENTOS: Momento[] = [
   {
-    slug: "inauguracao-lar-centro-de-dia",
-    titulo: "Inauguração do Lar e Centro de Dia",
+    slug: "inauguracao-lar-de-idosos",
+    titulo: "Inauguração do Lar de Idosos",
     fotos: [
       f("lar1", "Grupo de convidados e membros da associação à entrada do edifício, junto à placa comemorativa"),
       f("lar5", "Descerramento da bandeira durante a inauguração"),
