@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import { Contact } from "@/components/home/contact"
 import { EmptyState } from "@/components/site/empty-state"
 import { EventCard } from "@/components/site/event-card"
-import { MomentosGaleria } from "@/components/site/momentos"
+import { MomentoCard, MomentosGaleria } from "@/components/site/momentos"
+import { MOMENTOS } from "@/lib/momentos"
 import { LoadError } from "@/components/site/load-error"
 import { PageHero } from "@/components/site/page-hero"
 import { isUpcoming } from "@/lib/format"
@@ -54,7 +55,7 @@ export default async function EventosPage() {
         <div className="wrap">
           {resultado.ok ? (
             <EventosTabs
-              counts={{ proximos: proximos.length, passados: passados.length }}
+              counts={{ proximos: proximos.length, passados: passados.length + MOMENTOS.length }}
               panels={{
                 proximos: proximos.length ? (
                   <Lista eventos={proximos} />
@@ -64,13 +65,20 @@ export default async function EventosPage() {
                     message="Estamos a preparar novas atividades para a comunidade. Volte a visitar esta página em breve ou contacte-nos para saber o que vem aí."
                   />
                 ),
-                passados: passados.length ? (
-                  <Lista eventos={passados} past />
-                ) : (
-                  <EmptyState
-                    title="Ainda não há eventos anteriores"
-                    message="Assim que realizarmos novas atividades, poderá recordá-las aqui."
-                  />
+                passados: (
+                  <div className="space-y-12">
+                    {passados.length > 0 && <Lista eventos={passados} past />}
+                    <div>
+                      {passados.length > 0 && <h2 className="mb-6 text-2xl font-bold">Memórias de eventos anteriores</h2>}
+                      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {MOMENTOS.map((m) => (
+                          <li key={m.slug}>
+                            <MomentoCard momento={m} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 ),
               }}
             />

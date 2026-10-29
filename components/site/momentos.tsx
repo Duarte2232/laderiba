@@ -88,3 +88,33 @@ export function MomentosFaixa() {
     </section>
   )
 }
+
+// Cartão de um evento passado sem data (memória com fotografias), para a aba "Eventos passados".
+export function MomentoCard({ momento }: { momento: (typeof MOMENTOS)[number] }) {
+  const n = momento.fotos.length
+  return (
+    <article className="card-soft group relative flex h-full flex-col overflow-hidden hover:shadow-xl">
+      <div className="relative aspect-[3/2] overflow-hidden bg-sand">
+        <Image
+          src={momento.fotos[0].file}
+          alt={momento.fotos[0].alt}
+          fill
+          sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-2xl font-bold">
+          <Link href={`#m-${momento.slug}`} className="after:absolute after:inset-0 hover:underline">
+            {momento.titulo}
+          </Link>
+        </h3>
+        {momento.descricao && <p className="mt-2 line-clamp-3 flex-1 text-base text-muted-foreground">{momento.descricao}</p>}
+        <span className="mt-5 inline-flex items-center gap-2 font-bold text-accent">
+          Ver {n === 1 ? "a fotografia" : `as ${n} fotografias`}
+          <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </span>
+      </div>
+    </article>
+  )
+}

@@ -17,7 +17,9 @@ export const SITE = {
 } as const
 
 export const ADDRESS_ONE_LINE = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.locality}, Portugal`
-export const MAPS_QUERY = encodeURIComponent(ADDRESS_ONE_LINE)
+// Localização exata da associação no Google Maps.
+export const MAPS_LINK = "https://maps.app.goo.gl/JJ45EjZMNGDysFGE9"
+export const MAPS_EMBED_URL = "https://www.google.com/maps?q=42.0356286,-8.3392757&z=17&hl=pt-PT&output=embed"
 
 export const NAV = [
   { href: "/documentos", label: "Documentos" },
@@ -29,7 +31,7 @@ export const NAV = [
 
 export type AreaIcon = "idosos" | "criancas" | "cultura" | "servicos" | "formacao" | "centro"
 
-// Texto retirado da página "Sobre". Os pontos em `aConfirmar` são perguntas em aberto para a direção, não factos.
+// Texto retirado da página "Sobre".
 export const AREAS = [
   {
     slug: "apoio-a-idosos",
@@ -38,7 +40,6 @@ export const AREAS = [
     icon: "idosos" as AreaIcon,
     image: "area-idosos",
     summary: "Suporte em várias áreas para garantir qualidade de vida e dignidade às pessoas idosas.",
-    aConfirmar: ["Serviços concretos prestados", "Quem pode pedir apoio e como", "Horários"],
   },
   {
     slug: "criancas",
@@ -48,7 +49,6 @@ export const AREAS = [
     image: "evento", // não usado: esta área não tem cartão próprio
     summary: "Cuidados e iniciativas que promovem o desenvolvimento integral das crianças.",
     featured: false, // sem fotografia adequada por agora: só aparece na página Sobre
-    aConfirmar: ["Atividades em curso", "Idades abrangidas", "Horários e inscrições"],
   },
   {
     slug: "cultura-e-turismo",
@@ -57,7 +57,6 @@ export const AREAS = [
     icon: "cultura" as AreaIcon,
     image: "area-cultura",
     summary: "Ações de animação, produção e divulgação com enfoque cultural, socioeducativo e turístico.",
-    aConfirmar: ["Iniciativas regulares", "Parcerias locais"],
   },
   {
     slug: "servicos-comunitarios",
@@ -66,7 +65,6 @@ export const AREAS = [
     icon: "servicos" as AreaIcon,
     image: "area-servicos",
     summary: "Serviços úteis e relevantes para as necessidades da população local.",
-    aConfirmar: ["Lista de serviços disponíveis", "Condições de acesso"],
   },
   {
     slug: "formacao",
@@ -75,7 +73,6 @@ export const AREAS = [
     icon: "formacao" as AreaIcon,
     image: "area-formacao",
     summary: "Promoção, investigação e formação, sempre em defesa dos interesses da comunidade.",
-    aConfirmar: ["Cursos e ações de formação previstos", "Datas e destinatários"],
   },
   {
     slug: "centro-de-dia",
@@ -85,7 +82,6 @@ export const AREAS = [
     image: "area-centro-de-dia",
     summary: "O Centro de Dia já foi inaugurado e vai acolher e apoiar idosos em contexto de proximidade e bem-estar. Neste momento decorre o processo de admissão de utentes.",
     badge: "Inaugurado · admissões em curso",
-    aConfirmar: ["Como e quando fazer a candidatura", "Condições de admissão", "Contactos para mais informações"],
   },
 ] as const
 

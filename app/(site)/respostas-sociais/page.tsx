@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Info } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Contact } from "@/components/home/contact"
 import { AreaIconView } from "@/components/site/area-icon"
 import { ImageSlot } from "@/components/site/image-slot"
@@ -50,23 +50,9 @@ export default async function RespostasSociaisPage() {
                 )}
                 <p className="mt-4 text-xl text-muted-foreground">{area.summary}</p>
 
-                <div className="mt-6 rounded-2xl border-2 border-dashed border-border bg-card p-5">
-                  <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                    <Info className="h-4 w-4" aria-hidden="true" /> Detalhes a confirmar
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-base text-muted-foreground">
-                    {area.aConfirmar.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="mt-3 text-base">
-                    Para saber mais, ligue para{" "}
-                    <a href={SITE.phoneHref} className="font-bold text-olive underline underline-offset-4">
-                      {SITE.phone}
-                    </a>
-                    .
-                  </p>
-                </div>
+                <a href={SITE.phoneHref} className="btn-outline mt-6">
+                  Saber mais: {SITE.phone}
+                </a>
               </Reveal>
             </article>
           ))}
