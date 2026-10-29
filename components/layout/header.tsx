@@ -19,7 +19,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="hidden bg-olive text-sm text-white md:block">
-        <div className="wrap flex items-center justify-end gap-6 py-1.5">
+        <div className="wrap flex flex-wrap items-center justify-center gap-x-6 gap-y-1 py-2 text-center">
           <span>Estrada de Santo António, Cruzeiro · Riba de Mouro</span>
           <a href={SITE.phoneHref} className="font-bold underline-offset-4 hover:underline">
             {SITE.phone}

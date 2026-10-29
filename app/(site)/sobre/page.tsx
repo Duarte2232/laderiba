@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, Heart, Sprout, Users } from "lucide-react"
 import { Contact } from "@/components/home/contact"
-import { AreaIconView } from "@/components/site/area-icon"
 import { ImageSlot } from "@/components/site/image-slot"
 import { PageHero } from "@/components/site/page-hero"
 import { Reveal } from "@/components/site/reveal"
@@ -85,52 +84,40 @@ export default function SobrePage() {
       </section>
 
       <section className="section">
-        <div className="wrap">
-          <Reveal className="mb-12 max-w-2xl">
+        <div className="wrap grid gap-10 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-32 lg:self-start">
             <p className="eyebrow">Valores e áreas de trabalho</p>
-            <h2 className="text-balance text-3xl font-bold md:text-4xl">O que nos guia</h2>
+            <h2 className="text-balance text-3xl font-bold md:text-4xl">Aquilo em que acreditamos e o que fazemos</h2>
             <p className="mt-4 text-muted-foreground">
-              Valorizamos a solidariedade, a inclusão e o serviço à comunidade. É assim que se traduz no nosso trabalho:
+              Valorizamos a solidariedade, a inclusão e o serviço à comunidade. Sete frentes, um só propósito.
             </p>
           </Reveal>
 
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <li className="card-soft p-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-terracotta-tint text-accent">
-                <Heart className="h-6 w-6" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 text-xl font-bold">Solidariedade Social</h3>
-              <p className="mt-2 text-base text-muted-foreground">
+          <ul className="divide-y divide-border border-y border-border">
+            <li className="py-7">
+              <h3 className="text-2xl font-bold">Solidariedade Social</h3>
+              <p className="mt-2 text-muted-foreground">
                 Atividades que reforçam o espírito de entreajuda e apoio mútuo entre os membros da comunidade.
               </p>
             </li>
-            {AREAS.map((area, i) => {
+            {AREAS.map((area) => {
               const featured = !("featured" in area && area.featured === false)
-              const body = (
-                <>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-olive-tint text-olive">
-                    <AreaIconView icon={area.icon} className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-4 text-xl font-bold">{area.title}</h3>
-                  <p className="mt-2 text-base text-muted-foreground">{area.summary}</p>
-                  {featured && (
-                    <span className="mt-4 inline-flex items-center gap-2 font-bold text-accent">
-                      Saber mais <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                    </span>
-                  )}
-                </>
-              )
               return (
                 <li key={area.slug}>
-                  <Reveal delay={(i % 3) * 80} className="h-full">
-                    {featured ? (
-                      <Link href={`/respostas-sociais#${area.slug}`} className="card-soft group block h-full p-6 hover:shadow-xl">
-                        {body}
-                      </Link>
-                    ) : (
-                      <div className="card-soft h-full p-6">{body}</div>
-                    )}
-                  </Reveal>
+                  {featured ? (
+                    <Link href={`/respostas-sociais#${area.slug}`} className="group -mx-3 block rounded-xl px-3 py-7 transition-colors hover:bg-sand/60">
+                      <h3 className="flex items-center justify-between gap-4 text-2xl font-bold">
+                        {area.title}
+                        <ArrowRight className="h-5 w-5 shrink-0 text-accent transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                      </h3>
+                      <p className="mt-2 text-muted-foreground">{area.summary}</p>
+                    </Link>
+                  ) : (
+                    <div className="py-7">
+                      <h3 className="text-2xl font-bold">{area.title}</h3>
+                      <p className="mt-2 text-muted-foreground">{area.summary}</p>
+                    </div>
+                  )}
                 </li>
               )
             })}
