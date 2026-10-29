@@ -30,7 +30,7 @@ export function Hero() {
           Cuidar, ensinar e animar a nossa comunidade
         </h1>
         <p className="mt-6 max-w-xl text-xl text-white/95 md:text-2xl md:leading-relaxed">
-          A {SITE.name} apoia idosos e crianças e promove a cultura e a formação em Riba de Mouro.
+          A {SITE.name} apoia idosos e promove a cultura e a formação em Riba de Mouro.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Link href="/respostas-sociais" className="btn-accent">

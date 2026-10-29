@@ -16,7 +16,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
   title: "Respostas Sociais",
-  description: `Conheça as áreas de trabalho da ${SITE.name}: apoio a idosos, cultura e turismo, serviços comunitários, formação e o Centro de Dia.`,
+  description: `Conheça as áreas de trabalho da ${SITE.name}: apoio a idosos, cultura e turismo, serviços comunitários, formação e o Lar de Idosos.`,
   alternates: { canonical: "/respostas-sociais" },
 }
 

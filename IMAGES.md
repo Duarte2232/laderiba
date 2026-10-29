@@ -18,7 +18,7 @@ O Next.js redimensiona e converte para AVIF/WebP, por isso pode enviar a foto or
 | `area-cultura` | "Cultura, Educação e Turismo" | 1200 × 900 px (4:3) | |
 | `area-servicos` | "Serviços Comunitários" | 1200 × 900 px (4:3) | |
 | `area-formacao` | "Promoção e Formação" | 1200 × 900 px (4:3) | |
-| `area-centro-de-dia` | "Centro de Dia" (em planeamento) | 1200 × 900 px (4:3) | Pode ser o local previsto. |
+| `area-centro-de-dia` | "Lar de Idosos" | 1200 × 900 px (4:3) | O ficheiro mantém este nome por razões internas. |
 | `evento` | Imagem por omissão de eventos/projetos sem foto | 1200 × 800 px (3:2) | Imagem neutra (ex.: logótipo ou paisagem). |
 | `eventos-vazio` | Ilustração do "ainda não há eventos" | 1200 × 800 px (3:2) | |
 

@@ -12,7 +12,7 @@ export const IMAGE_SLOTS = {
   "area-cultura": { label: "Cultura, educação e turismo", width: 1200, height: 900 },
   "area-servicos": { label: "Serviços comunitários", width: 1200, height: 900 },
   "area-formacao": { label: "Promoção e formação", width: 1200, height: 900 },
-  "area-centro-de-dia": { label: "Centro de Dia", width: 1200, height: 900 },
+  "area-centro-de-dia": { label: "Lar de Idosos", width: 1200, height: 900 },
   evento: { label: "Imagem por omissão de eventos", width: 1200, height: 800 },
   "eventos-vazio": { label: "Página de eventos sem eventos", width: 1200, height: 800 },
 } as const

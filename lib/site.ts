@@ -75,12 +75,12 @@ export const AREAS = [
     summary: "Promoção, investigação e formação, sempre em defesa dos interesses da comunidade.",
   },
   {
-    slug: "centro-de-dia",
-    alt: "Sala de convívio do Centro de Dia, com cadeirões e janelas amplas",
-    title: "Centro de Dia",
+    slug: "lar-de-idosos",
+    alt: "Sala de convívio do Lar de Idosos, com cadeirões e janelas amplas",
+    title: "Lar de Idosos",
     icon: "centro" as AreaIcon,
     image: "area-centro-de-dia",
-    summary: "O Centro de Dia já foi inaugurado e vai acolher e apoiar idosos em contexto de proximidade e bem-estar. Neste momento decorre o processo de admissão de utentes.",
+    summary: "O Lar de Idosos já foi inaugurado e vai acolher e apoiar idosos em contexto de proximidade e bem-estar. Neste momento decorre o processo de admissão de utentes.",
     badge: "Inaugurado · admissões em curso",
   },
 ] as const
